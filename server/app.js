@@ -34,7 +34,12 @@ app.use('/api/v1/notifications', require('./modules/notification/notification.ro
 app.use('/api/v1/dashboard', require('./modules/dashboard/dashboard.routes'));
 
 app.get('/api/v1/health', (req, res) => res.json({ status: 'ok', time: new Date() }));
-
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Ethara PMS API is running',
+    version: 'v1'
+  });
+});
 // Global error handler
 app.use(require('./middleware/errorHandler'));
 

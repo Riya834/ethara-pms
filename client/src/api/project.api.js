@@ -1,0 +1,10 @@
+import api from './axios';
+export const getProjects = (params) => api.get('/projects', { params });
+export const createProject = (data) => api.post('/projects', data);
+export const getProjectById = (id) => api.get(`/projects/${id}`);
+export const updateProject = (id, data) => api.put(`/projects/${id}`, data);
+export const updateProjectStatus = (id, status) => api.patch(`/projects/${id}/status`, { status });
+export const archiveProject = (id) => api.delete(`/projects/${id}`);
+export const addMembers = (id, members) => api.post(`/projects/${id}/members`, { members });
+export const removeMember = (id, userId) => api.delete(`/projects/${id}/members/${userId}`);
+export const getProjectStats = (id) => api.get(`/projects/${id}/stats`);

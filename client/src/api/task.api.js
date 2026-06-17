@@ -1,0 +1,12 @@
+import api from './axios';
+export const getTasks = (params) => api.get('/tasks', { params });
+export const createTask = (data) => api.post('/tasks', data);
+export const getTaskById = (id) => api.get(`/tasks/${id}`);
+export const updateTask = (id, data) => api.put(`/tasks/${id}`, data);
+export const updateTaskStatus = (id, status) => api.patch(`/tasks/${id}/status`, { status });
+export const assignTask = (id, assigneeId) => api.patch(`/tasks/${id}/assign`, { assigneeId });
+export const deleteTask = (id) => api.delete(`/tasks/${id}`);
+export const addComment = (id, data) => api.post(`/tasks/${id}/comments`, data);
+export const deleteComment = (id, commentId) => api.delete(`/tasks/${id}/comments/${commentId}`);
+export const getMyTasks = () => api.get('/tasks/my-tasks');
+export const getOverdueTasks = () => api.get('/tasks/overdue');

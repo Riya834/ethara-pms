@@ -1,0 +1,11 @@
+import api from './axios';
+export const getUsers = (params) => api.get('/users', { params });
+export const getUserById = (id) => api.get(`/users/${id}`);
+export const updateUser = (id, data) => api.put(`/users/${id}`, data);
+export const changeRole = (id, role) => api.patch(`/users/${id}/role`, { role });
+export const deactivateUser = (id) => api.patch(`/users/${id}/deactivate`);
+export const reactivateUser = (id) => api.patch(`/users/${id}/reactivate`);
+export const uploadAvatar = (id, formData) => api.post(`/users/${id}/avatar`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+export const searchUsers = (q) => api.get('/users/search', { params: { q } });
+export const updatePassword = (data) => api.patch('/users/me/password', data);
+export const updateNotifPrefs = (data) => api.patch('/users/me/notification-prefs', data);
